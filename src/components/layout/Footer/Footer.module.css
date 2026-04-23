@@ -1,0 +1,146 @@
+.footer {
+  margin-top: 26px;
+  background-color: #f4f4f4;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 0.9fr 1.4fr;
+  gap: 22px;
+  padding: 26px 18px 24px;
+}
+
+.logo {
+  width: 220px;
+  margin-bottom: 8px;
+}
+
+.primaryPhone {
+  display: inline-block;
+  color: #1e1e1e;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.worktime h4,
+.worktime p {
+  margin: 0;
+  color: #4e4e4e;
+}
+
+.worktime h4 {
+  margin-bottom: 4px;
+  font-size: 17px;
+}
+
+.worktime p {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.socials {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.socials a {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d0d0d0;
+  display: grid;
+  place-items: center;
+  color: #7b7b7b;
+  font-size: 16px;
+}
+
+.linkColumn h3,
+.contactsColumn h3 {
+  margin: 0 0 10px;
+  color: #4a4a4a;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.linkColumn ul,
+.contactsColumn ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.linkColumn li {
+  margin-bottom: 8px;
+}
+
+.linkColumn a {
+  color: #474747;
+  font-size: 16px;
+}
+
+.contactsColumn li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #444444;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.contactsColumn li svg {
+  margin-top: 2px;
+  font-size: 17px;
+  color: #111111;
+}
+
+.contactButton {
+  margin-top: 8px;
+  border: 0;
+  background-color: #38a13f;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.bottom {
+  background-color: #2d8e2f;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 12px;
+}
+
+.bottom p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+@media (max-width: 1100px) {
+  .top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .linkColumn h3,
+  .contactsColumn h3 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 680px) {
+  .top {
+    grid-template-columns: 1fr;
+    padding: 20px 12px;
+    gap: 20px;
+  }
+
+  .logo {
+    width: min(220px, 100%);
+  }
+
+  .primaryPhone {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,9 @@
+.page {
+  background-color: #ffffff;
+  color: #313131;
+}
+
+.wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+}

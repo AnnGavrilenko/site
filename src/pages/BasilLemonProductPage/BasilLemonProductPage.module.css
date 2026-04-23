@@ -1,0 +1,203 @@
+.content {
+  padding-top: 6px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+  color: #4f4f4f;
+  font-size: 14px;
+}
+
+.breadcrumbs a {
+  color: #4f4f4f;
+}
+
+.topBlock {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.imageColumn img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e1e1e1;
+}
+
+.infoColumn h1 {
+  margin: 0 0 12px;
+  color: #3a3a3a;
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #4c4c4c;
+  font-size: 16px;
+}
+
+.stars {
+  color: #f2bd1d;
+  letter-spacing: 1px;
+}
+
+.characteristics {
+  margin: 0 0 12px;
+  border-top: 1px solid #ececec;
+}
+
+.characteristicRow {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+  gap: 14px;
+  border-bottom: 1px solid #ececec;
+  padding: 6px 0;
+}
+
+.characteristicRow dt,
+.characteristicRow dd {
+  margin: 0;
+  color: #4f4f4f;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.code {
+  margin: 0 0 6px;
+  color: #666666;
+  font-size: 15px;
+}
+
+.priceRow {
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.priceRow span {
+  color: #2f2f2f;
+  font-size: 39px;
+  font-weight: 600;
+}
+
+.priceRow strong {
+  color: #e7771d;
+  font-size: 39px;
+  font-weight: 700;
+}
+
+.buyRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter {
+  display: flex;
+  border: 1px solid #d8d8d8;
+  height: 34px;
+}
+
+.counter button,
+.counter span {
+  width: 34px;
+  border: 0;
+  background-color: #e8e8e8;
+  color: #2f2f2f;
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.counter span {
+  width: 50px;
+  background-color: #ffffff;
+  border-left: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+}
+
+.buyButton {
+  min-width: 122px;
+  min-height: 36px;
+  border: 0;
+  border-radius: 2px;
+  background-color: #2ea848;
+  color: #ffffff;
+  font-size: 29px;
+  cursor: pointer;
+}
+
+.tabs {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  border: 1px solid #dddddd;
+  background-color: #f5f5f5;
+  color: #4f4f4f;
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tabActive {
+  border-top: 2px solid #26a083;
+  background-color: #ffffff;
+}
+
+.description {
+  margin: 22px 0 0;
+  color: #434343;
+  font-size: 16px;
+  line-height: 1.6;
+  text-indent: 1.5em;
+}
+
+@media (max-width: 1200px) {
+  .topBlock {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+
+  .infoColumn h1 {
+    font-size: 32px;
+  }
+
+  .priceRow span,
+  .priceRow strong {
+    font-size: 26px;
+  }
+
+  .buyButton {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .topBlock {
+    grid-template-columns: 1fr;
+  }
+
+  .imageColumn {
+    max-width: 320px;
+  }
+
+  .characteristicRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

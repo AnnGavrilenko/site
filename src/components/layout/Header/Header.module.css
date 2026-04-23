@@ -1,0 +1,183 @@
+.header {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.topLine {
+  min-height: 86px;
+  display: grid;
+  grid-template-columns: 255px 1fr 1fr 165px;
+  align-items: center;
+  gap: 18px;
+  padding: 6px 14px 8px;
+}
+
+.logoLink {
+  display: block;
+}
+
+.logo {
+  width: 252px;
+  height: auto;
+}
+
+.contacts {
+  color: #4a4a4a;
+}
+
+.shopLabel {
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1;
+  color: #666666;
+  font-weight: 500;
+}
+
+.phoneRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.a1 {
+  color: #920015;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.phone {
+  font-size: 30px;
+  color: #2c2c2c;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.searchForm {
+  display: flex;
+  border: 1px solid #dddddd;
+  border-radius: 22px;
+  overflow: hidden;
+  max-width: 430px;
+  height: 42px;
+  justify-self: center;
+  width: 100%;
+}
+
+.searchForm input {
+  border: 0;
+  flex: 1;
+  padding: 0 16px;
+  font-size: 16px;
+  outline: none;
+}
+
+.searchForm button {
+  width: 52px;
+  border: 0;
+  background-color: #4aa73f;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: end;
+  color: #2f2f2f;
+}
+
+.cartIcon {
+  font-size: 30px;
+  color: #3da637;
+  position: relative;
+}
+
+.cartText {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.cartText strong {
+  font-size: 14px;
+  color: #1f1f1f;
+}
+
+.cartText span {
+  color: #545454;
+  font-size: 14px;
+}
+
+@media (max-width: 1300px) {
+  .topLine {
+    grid-template-columns: 220px 1fr;
+    grid-template-areas:
+      'logo cart'
+      'contacts contacts'
+      'search search';
+    row-gap: 12px;
+  }
+
+  .logoLink {
+    grid-area: logo;
+  }
+
+  .cart {
+    grid-area: cart;
+  }
+
+  .contacts {
+    grid-area: contacts;
+  }
+
+  .searchForm {
+    grid-area: search;
+    max-width: unset;
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .topLine {
+    padding: 8px 10px 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'logo'
+      'contacts'
+      'search'
+      'cart';
+  }
+
+  .logo {
+    width: min(240px, 100%);
+  }
+
+  .shopLabel {
+    font-size: 18px;
+  }
+
+  .phone {
+    font-size: 22px;
+  }
+
+  .a1 {
+    font-size: 16px;
+  }
+
+  .cart {
+    justify-self: start;
+  }
+
+  .cartText strong {
+    font-size: 16px;
+  }
+
+  .cartText span {
+    font-size: 14px;
+  }
+}

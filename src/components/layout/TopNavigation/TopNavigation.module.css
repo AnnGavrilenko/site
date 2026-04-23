@@ -1,0 +1,48 @@
+.navigation {
+  background-color: #2d8e2f;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  align-items: center;
+}
+
+.link {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 600;
+  padding: 11px 0;
+}
+
+@media (max-width: 1024px) {
+  .list {
+    gap: 16px;
+    padding-inline: 14px;
+  }
+
+  .link {
+    font-size: 15px;
+    padding-block: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    min-height: unset;
+  }
+
+  .list {
+    padding-block: 8px;
+    gap: 10px 14px;
+  }
+}

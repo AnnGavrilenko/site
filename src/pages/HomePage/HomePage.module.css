@@ -1,0 +1,14 @@
+.mainZone {
+  min-width: 0;
+}
+
+.popularProductsWrap {
+  margin-top: 14px;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .popularProductsWrap {
+    margin-top: 14px;
+  }
+}

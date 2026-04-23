@@ -1,0 +1,16 @@
+.layout {
+  margin-top: 6px;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.8fr) minmax(0, 2.4fr);
+  gap: 10px;
+}
+
+.content {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
