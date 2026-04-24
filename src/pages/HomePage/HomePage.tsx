@@ -37,10 +37,12 @@ export function HomePage(): JSX.Element {
   return (
     <SiteLayout>
       <WithSideCatalogLayout>
-        <HeroSection sideBannerImage={rightBannerImage} slides={sliderImages} />
-        <div className={styles.popularProductsWrap}>
-          <PopularProductsSection items={popularProducts} />
-        </div>
+        <HeroSection showSideBanner={!isStandalone} sideBannerImage={rightBannerImage} slides={sliderImages} />
+        {!isStandalone ? (
+          <div className={styles.popularProductsWrap}>
+            <PopularProductsSection items={popularProducts} />
+          </div>
+        ) : null}
       </WithSideCatalogLayout>
 
       <section className={styles.mainZone}>

@@ -1,8 +1,33 @@
 import { buyerLinks, companyLinks, footerLogo } from '../../../shared/config/homePageData';
+import { useDisplayMode } from '../../../shared/hooks/useDisplayMode';
 import { Icon } from '../../ui/Icon/Icon';
 import styles from './Footer.module.css';
 
 export function Footer(): JSX.Element {
+  const { isStandalone } = useDisplayMode();
+
+  if (isStandalone) {
+    return (
+      <footer className={styles.footer}>
+        <div className={styles.appCard}>
+          <a className={styles.appLogoLink} href="#">
+            <img alt="Насенне" className={styles.appLogo} src={footerLogo} />
+          </a>
+          <a className={styles.appPhone} href="tel:+375296071324">
+            8 (029) 607-13-24
+          </a>
+          <p className={styles.appAddress}>г. Минск, ул. Минная, д. 21, корп. 1</p>
+          <a className={styles.appMail} href="mailto:info@msso.by">
+            info@msso.by
+          </a>
+          <button className={styles.contactButton} type="button">
+            Написать нам
+          </button>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
