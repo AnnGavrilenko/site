@@ -22,17 +22,17 @@ export function MobileBottomNav({
     <nav aria-label="Мобильная навигация" className={styles.nav}>
       <button className={styles.item} onClick={onOpenMenu} type="button">
         <Icon name="menu" />
-        <span>Меню</span>
+        <span className={styles.label}>Меню</span>
       </button>
 
       <button className={`${styles.item} ${isSearchActive ? styles.active : ''}`} onClick={onOpenSearch} type="button">
         <Icon name="search" />
-        <span>Поиск</span>
+        <span className={styles.label}>Поиск</span>
       </button>
 
       <Link className={`${styles.item} ${isHome && !isSearchActive ? styles.active : ''}`} to="/">
         <Icon name="home" />
-        <span>Главная</span>
+        <span className={styles.label}>Главная</span>
       </Link>
 
       <a
@@ -43,7 +43,7 @@ export function MobileBottomNav({
         }}
       >
         <Icon name="cart" />
-        <span>Корзина</span>
+        <span className={styles.label}>Корзина</span>
         {cartCount > 0 ? <span className={styles.badge}>{cartCount}</span> : null}
       </a>
 
@@ -55,7 +55,7 @@ export function MobileBottomNav({
         }}
       >
         <Icon name="sprout" />
-        <span>Мой огород</span>
+        <span className={styles.label}>Мой огород</span>
       </a>
     </nav>
   );

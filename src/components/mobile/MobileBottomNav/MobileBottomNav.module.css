@@ -30,6 +30,13 @@
   font-weight: 600;
 }
 
+.label {
+  display: block;
+  min-height: 24px;
+  text-align: center;
+  white-space: normal;
+}
+
 .item svg {
   width: 20px;
   height: 20px;

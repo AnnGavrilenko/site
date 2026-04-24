@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       injectRegister: 'auto',
       includeAssets: ['pwa/logo.jpg', 'pwa/icon.jpg'],
       manifest: {

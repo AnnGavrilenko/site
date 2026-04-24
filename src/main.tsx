@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { registerSW } from 'virtual:pwa-register';
 import { AppRouter } from './app/AppRouter';
 import { DisplayModeClassManager } from './components/pwa/DisplayModeClassManager/DisplayModeClassManager';
 import { InstallAppBanner } from './components/pwa/InstallAppBanner/InstallAppBanner';
+import { PwaUpdatePrompt } from './components/pwa/PwaUpdatePrompt/PwaUpdatePrompt';
 import './styles/global.css';
-
-registerSW({ immediate: true });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -15,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <DisplayModeClassManager />
       <AppRouter />
       <InstallAppBanner />
+      <PwaUpdatePrompt />
     </BrowserRouter>
   </React.StrictMode>,
 );
