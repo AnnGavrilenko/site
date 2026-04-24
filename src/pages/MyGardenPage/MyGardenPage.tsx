@@ -70,6 +70,25 @@ export function MyGardenPage(): JSX.Element {
     );
   };
 
+  const deletePlantWithEvents = (plantId: string): void => {
+    setPlants((prevPlants) => prevPlants.filter((plant) => plant.id !== plantId));
+    setEvents((prevEvents) => prevEvents.filter((event) => event.plantId !== plantId));
+  };
+
+  const deleteGardenEvent = (eventId: string): void => {
+    const targetEvent = events.find((event) => event.id === eventId);
+    if (!targetEvent) {
+      return;
+    }
+
+    if (targetEvent.actionType === 'Посадка') {
+      deletePlantWithEvents(targetEvent.plantId);
+      return;
+    }
+
+    setEvents((prevEvents) => prevEvents.filter((event) => event.id !== eventId));
+  };
+
   const closeForms = (): void => {
     setIsAddPlantOpen(false);
     setIsAddActionOpen(false);
@@ -159,10 +178,6 @@ export function MyGardenPage(): JSX.Element {
   return (
     <SiteLayout>
       <div className={styles.page}>
-        <header className={styles.header}>
-          <h1>Мой огород</h1>
-        </header>
-
         <GardenCalendar
           events={events}
           monthDate={monthDate}
@@ -174,34 +189,42 @@ export function MyGardenPage(): JSX.Element {
 
         {plants.length === 0 && events.length === 0 ? <p className={styles.emptyState}>У вас пока нет растений</p> : null}
 
-        <section className={styles.eventsCard}>
-          <h2>События на {formatDate(selectedDate)}</h2>
-          {eventsBySelectedDate.length === 0 ? (
-            <p className={styles.noEvents}>Нет событий</p>
-          ) : (
-            <ul className={styles.eventsList}>
-              {eventsBySelectedDate.map((event) => {
-                const icon = actionIconByType[event.actionType] ?? '•';
-                return (
-                  <li className={styles.eventItem} key={event.id}>
-                    <div>
-                      <p className={styles.eventTitle}>
-                        <span>{icon}</span> {event.actionType}
-                      </p>
-                      <p className={styles.eventMeta}>{event.plantName}</p>
-                      <p className={styles.eventMeta}>{formatDate(event.date)}</p>
-                      <p className={styles.eventStatus}>{event.isCompleted ? 'выполнено' : 'не выполнено'}</p>
-                    </div>
-                    <label className={styles.checkbox}>
-                      <input checked={event.isCompleted} onChange={() => toggleEventStatus(event.id)} type="checkbox" />
-                      <span>{event.isCompleted ? 'Отменить' : 'Выполнить'}</span>
-                    </label>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </section>
+        {plants.length > 0 || events.length > 0 ? (
+          <section className={styles.eventsCard}>
+            <h2>События на {formatDate(selectedDate)}</h2>
+            {eventsBySelectedDate.length === 0 ? (
+              <p className={styles.noEvents}>Нет событий</p>
+            ) : (
+              <ul className={styles.eventsList}>
+                {eventsBySelectedDate.map((event) => {
+                  const icon = actionIconByType[event.actionType] ?? '•';
+                  return (
+                    <li className={styles.eventItem} key={event.id}>
+                      <button
+                        aria-label="Удалить событие"
+                        className={styles.deleteButton}
+                        onClick={() => deleteGardenEvent(event.id)}
+                        type="button"
+                      >
+                        ×
+                      </button>
+                      <div className={styles.eventContent}>
+                        <p className={styles.eventTitle}>
+                          <span>{icon}</span> {event.actionType}
+                        </p>
+                        <p className={styles.eventMeta}>{event.plantName}</p>
+                      </div>
+                      <label className={styles.checkbox}>
+                        <input checked={event.isCompleted} onChange={() => toggleEventStatus(event.id)} type="checkbox" />
+                        <span>{event.isCompleted ? 'Отменить' : 'Выполнить'}</span>
+                      </label>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </section>
+        ) : null}
       </div>
 
       <GardenAddMenu
