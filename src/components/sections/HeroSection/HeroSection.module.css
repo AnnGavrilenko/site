@@ -17,9 +17,16 @@
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sideBanner {
+    border-radius: 14px;
+    overflow: hidden;
   }
 
   .sideBanner img {
-    height: auto;
+    height: 168px;
+    object-fit: cover;
   }
 }

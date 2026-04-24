@@ -8,7 +8,22 @@
 }
 
 @media (max-width: 900px) {
+  .mainZone {
+    padding: 0 10px;
+  }
+
   .popularProductsWrap {
     margin-top: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mainZone {
+    padding-inline: 12px;
+  }
+
+  .popularProductsWrap {
+    margin-top: 12px;
+    padding-bottom: calc(74px + env(safe-area-inset-bottom));
   }
 }

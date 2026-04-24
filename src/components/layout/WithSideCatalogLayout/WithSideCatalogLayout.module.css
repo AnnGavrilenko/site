@@ -12,5 +12,15 @@
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
+    margin-top: 10px;
+  }
+
+  .layout > aside {
+    display: none;
+  }
+
+  .content {
+    display: grid;
+    gap: 12px;
   }
 }

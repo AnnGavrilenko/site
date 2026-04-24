@@ -1,0 +1,154 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(13, 24, 15, 0.42);
+  z-index: 80;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(88vw, 360px);
+  background-color: #ffffff;
+  z-index: 81;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 220ms ease;
+  box-shadow: 10px 0 22px rgba(16, 30, 17, 0.2);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  padding: 0 14px;
+  background-color: #2f8f30;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.closeButton {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.scroll {
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: calc(14px + env(safe-area-inset-bottom));
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  border-bottom: 1px solid #ecefec;
+}
+
+.rowLink,
+.rowButton {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #373737;
+  font-size: 15px;
+  line-height: 1.2;
+  background: #ffffff;
+  border: 0;
+  text-align: left;
+}
+
+.left {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #4ba641;
+  position: relative;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background-color: #4ba641;
+}
+
+.newBadge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #4ab448;
+  border-radius: 10px;
+  padding: 2px 6px;
+}
+
+.chevron {
+  width: 18px;
+  height: 18px;
+  stroke: #6f7d72;
+  fill: none;
+  stroke-width: 1.8;
+  transition: transform 180ms ease;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  margin: 0;
+  padding: 0 14px 10px 38px;
+  list-style: none;
+}
+
+.submenuTitle {
+  display: block;
+  margin: 3px 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #426546;
+}
+
+.submenuItem a {
+  display: block;
+  color: #4a4f4b;
+  font-size: 14px;
+  line-height: 1.35;
+  padding: 5px 0;
+}
+
+@media (min-width: 901px) {
+  .overlay,
+  .drawer {
+    display: none;
+  }
+}

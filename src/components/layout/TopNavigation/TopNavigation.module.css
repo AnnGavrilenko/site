@@ -38,11 +38,6 @@
 
 @media (max-width: 768px) {
   .navigation {
-    min-height: unset;
-  }
-
-  .list {
-    padding-block: 8px;
-    gap: 10px 14px;
+    display: none;
   }
 }

@@ -144,40 +144,21 @@
 
 @media (max-width: 768px) {
   .topLine {
-    padding: 8px 10px 10px;
+    min-height: 62px;
+    padding: 8px 12px;
     grid-template-columns: 1fr;
-    grid-template-areas:
-      'logo'
-      'contacts'
-      'search'
-      'cart';
+    grid-template-areas: 'logo';
+    gap: 0;
   }
 
   .logo {
-    width: min(240px, 100%);
+    width: min(208px, 100%);
+    margin: 0 auto;
   }
 
-  .shopLabel {
-    font-size: 18px;
-  }
-
-  .phone {
-    font-size: 22px;
-  }
-
-  .a1 {
-    font-size: 16px;
-  }
-
+  .contacts,
+  .searchForm,
   .cart {
-    justify-self: start;
-  }
-
-  .cartText strong {
-    font-size: 16px;
-  }
-
-  .cartText span {
-    font-size: 14px;
+    display: none;
   }
 }

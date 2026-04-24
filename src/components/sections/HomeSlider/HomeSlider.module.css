@@ -71,8 +71,28 @@
 }
 
 @media (max-width: 768px) {
+  .slider {
+    border-radius: 14px;
+  }
+
+  .slide img {
+    height: 176px;
+    object-fit: cover;
+  }
+
   .arrow {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+    background-color: rgba(0, 0, 0, 0.32);
+    border-radius: 50%;
+  }
+
+  .dots {
+    bottom: 10px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
   }
 }
