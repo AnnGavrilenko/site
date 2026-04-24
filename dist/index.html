@@ -4,13 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2f8f30" />
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="manifest" href="/site/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/site/pwa/logo.jpg" />
-    <link rel="apple-touch-startup-image" href="/site/pwa/icon.jpg" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Насенне" />
     <title>Насенне</title>
-    <script type="module" crossorigin src="/site/assets/index-B2apHQSq.js"></script>
+    <script>
+      (function () {
+        const redirect = sessionStorage.getItem('gh-pages-path');
+        if (!redirect) return;
+        sessionStorage.removeItem('gh-pages-path');
+        const targetUrl = new URL(redirect, window.location.origin);
+        window.history.replaceState(null, '', targetUrl.pathname + targetUrl.search + targetUrl.hash);
+      })();
+    </script>
+    <script type="module" crossorigin src="/site/assets/index-DuutoDTm.js"></script>
     <link rel="stylesheet" crossorigin href="/site/assets/index-uypZ10DW.css">
-  <link rel="manifest" href="/site/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/site/registerSW.js"></script></head>
+  <link rel="manifest" href="/site/manifest.webmanifest"></head>
   <body>
     <div id="root"></div>
   </body>

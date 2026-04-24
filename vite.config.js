@@ -8,45 +8,76 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
             injectRegister: 'auto',
-            devOptions: {
-                enabled: true,
-            },
             includeAssets: ['pwa/logo.jpg', 'pwa/icon.jpg'],
             manifest: {
                 name: 'Насенне',
                 short_name: 'Насенне',
                 description: 'Интернет-магазин Насенне',
                 theme_color: '#2f8f30',
-                background_color: '#f4f4f4',
+                background_color: '#f5f5f0',
                 display: 'standalone',
-                start_url: '/',
-                scope: '/',
+                start_url: '/site/',
+                scope: '/site/',
                 icons: [
                     {
-                        src: '/pwa/logo.jpg',
-                        sizes: '900x900',
+                        src: '/site/pwa/logo.jpg',
                         type: 'image/jpeg',
                         purpose: 'any',
                     },
                     {
-                        src: '/pwa/logo.jpg',
-                        sizes: '900x900',
+                        src: '/site/pwa/icon.jpg',
                         type: 'image/jpeg',
-                        purpose: 'maskable',
-                    },
-                ],
-                screenshots: [
-                    {
-                        src: '/pwa/icon.jpg',
-                        sizes: '600x599',
-                        type: 'image/jpeg',
-                        form_factor: 'wide',
+                        purpose: 'any maskable',
                     },
                 ],
             },
             workbox: {
-                navigateFallback: '/index.html',
                 cleanupOutdatedCaches: true,
+                navigateFallback: '/site/index.html',
+                runtimeCaching: [
+                    {
+                        urlPattern: function (_a) {
+                            var request = _a.request;
+                            return request.destination === 'document';
+                        },
+                        handler: 'NetworkFirst',
+                        options: {
+                            cacheName: 'pages',
+                            expiration: {
+                                maxEntries: 50,
+                                maxAgeSeconds: 60 * 60 * 24,
+                            },
+                        },
+                    },
+                    {
+                        urlPattern: function (_a) {
+                            var request = _a.request;
+                            return ['style', 'script', 'worker'].includes(request.destination);
+                        },
+                        handler: 'StaleWhileRevalidate',
+                        options: {
+                            cacheName: 'assets',
+                            expiration: {
+                                maxEntries: 100,
+                                maxAgeSeconds: 60 * 60 * 24 * 30,
+                            },
+                        },
+                    },
+                    {
+                        urlPattern: function (_a) {
+                            var request = _a.request;
+                            return request.destination === 'image' || request.destination === 'font';
+                        },
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'media',
+                            expiration: {
+                                maxEntries: 200,
+                                maxAgeSeconds: 60 * 60 * 24 * 30,
+                            },
+                        },
+                    },
+                ],
             },
         }),
     ],
