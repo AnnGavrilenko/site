@@ -1,0 +1,29 @@
+.container {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+}
+
+.button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  background-color: #2f8f30;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #297c2a;
+}
+
+.button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}

@@ -8,7 +8,8 @@
       (function () {
         const path = window.location.pathname + window.location.search + window.location.hash;
         sessionStorage.setItem('gh-pages-path', path);
-        window.location.replace('/site/');
+        const isSiteRepo = window.location.pathname.startsWith('/site/');
+        window.location.replace(isSiteRepo ? '/site/' : '/');
       })();
     </script>
   </head>

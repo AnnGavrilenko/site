@@ -1,12 +1,19 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig({
-  base: '/site/',
-  plugins: [
-    react(),
-    VitePWA({
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, '.', '');
+  const rawBase = process.env.VITE_APP_BASE || env.VITE_APP_BASE || '/';
+  const appBase = rawBase.startsWith('/')
+    ? rawBase.endsWith('/') ? rawBase : `${rawBase}/`
+    : `/${rawBase.endsWith('/') ? rawBase : `${rawBase}/`}`;
+
+  return {
+    base: appBase,
+    plugins: [
+      react(),
+      VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       includeAssets: ['pwa/logo.jpg', 'pwa/icon.jpg'],
@@ -17,16 +24,16 @@ export default defineConfig({
         theme_color: '#2f8f30',
         background_color: '#f5f5f0',
         display: 'standalone',
-        start_url: '/site/',
-        scope: '/site/',
+        start_url: appBase,
+        scope: appBase,
         icons: [
           {
-            src: '/site/pwa/logo.jpg',
+            src: `${appBase}pwa/logo.jpg`,
             type: 'image/jpeg',
             purpose: 'any',
           },
           {
-            src: '/site/pwa/icon.jpg',
+            src: `${appBase}pwa/icon.jpg`,
             type: 'image/jpeg',
             purpose: 'any maskable',
           },
@@ -34,7 +41,7 @@ export default defineConfig({
       },
       workbox: {
         cleanupOutdatedCaches: true,
-        navigateFallback: '/site/index.html',
+        navigateFallback: `${appBase}index.html`,
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === 'document',
@@ -73,6 +80,7 @@ export default defineConfig({
           },
         ],
       },
-    }),
-  ],
+      }),
+    ],
+  };
 });
