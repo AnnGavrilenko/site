@@ -1,0 +1,77 @@
+.banner {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 72;
+  border-radius: 14px;
+  border: 1px solid #d7e5d7;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(10, 26, 10, 0.16);
+  padding: 12px 12px 10px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  color: #2f8f30;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.text {
+  margin: 4px 0 0;
+  color: #4e5d4f;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.close {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #edf4ed;
+  color: #3f4f40;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.installButton {
+  border: 0;
+  border-radius: 10px;
+  min-height: 36px;
+  padding: 0 14px;
+  background-color: #2f8f30;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hint {
+  margin: 10px 0 0;
+  color: #667267;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+@media (min-width: 901px) {
+  .banner {
+    display: none;
+  }
+}

@@ -105,35 +105,35 @@
 }
 
 @media (max-width: 600px) {
-  .section {
+  :global(body.app-standalone-mode) .section {
     margin-top: 18px;
   }
 
-  .section h2 {
+  :global(body.app-standalone-mode) .section h2 {
     margin-bottom: 12px;
     font-size: 26px;
   }
 
-  .grid {
+  :global(body.app-standalone-mode) .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
-  .card {
+  :global(body.app-standalone-mode) .card {
     border-radius: 14px;
   }
 
-  .bottomBar span {
+  :global(body.app-standalone-mode) .bottomBar span {
     font-size: 13px;
   }
 
-  .bottomBar {
+  :global(body.app-standalone-mode) .bottomBar {
     min-height: 54px;
     padding: 8px;
     gap: 4px;
   }
 
-  .hoverButton {
+  :global(body.app-standalone-mode) .hoverButton {
     display: none;
   }
 }

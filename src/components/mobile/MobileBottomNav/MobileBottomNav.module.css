@@ -64,7 +64,7 @@
 }
 
 @media (max-width: 900px) {
-  .nav {
+  :global(body.app-standalone-mode) .nav {
     display: grid;
   }
 }

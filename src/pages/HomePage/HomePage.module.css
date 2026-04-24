@@ -22,7 +22,7 @@
     padding-inline: 12px;
   }
 
-  .popularProductsWrap {
+  :global(body.app-standalone-mode) .popularProductsWrap {
     margin-top: 12px;
     padding-bottom: calc(74px + env(safe-area-inset-bottom));
   }

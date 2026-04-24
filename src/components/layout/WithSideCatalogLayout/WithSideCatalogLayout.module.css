@@ -10,16 +10,16 @@
 }
 
 @media (max-width: 900px) {
-  .layout {
+  :global(body.app-standalone-mode) .layout {
     grid-template-columns: 1fr;
     margin-top: 10px;
   }
 
-  .layout > aside {
+  :global(body.app-standalone-mode) .layout > aside {
     display: none;
   }
 
-  .content {
+  :global(body.app-standalone-mode) .content {
     display: grid;
     gap: 12px;
   }

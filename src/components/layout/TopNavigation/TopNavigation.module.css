@@ -37,7 +37,7 @@
 }
 
 @media (max-width: 768px) {
-  .navigation {
+  :global(body.app-standalone-mode) .navigation {
     display: none;
   }
 }

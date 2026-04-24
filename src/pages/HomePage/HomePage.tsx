@@ -16,11 +16,13 @@ import {
   rightBannerImage,
   sliderImages,
 } from '../../shared/config/homePageData';
+import { useDisplayMode } from '../../shared/hooks/useDisplayMode';
 import styles from './HomePage.module.css';
 
 export function HomePage(): JSX.Element {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { isStandalone } = useDisplayMode();
 
   const openCatalog = (): void => {
     setIsSearchOpen(false);
@@ -49,9 +51,13 @@ export function HomePage(): JSX.Element {
         <PopularCategoriesSection items={popularCategories} />
       </section>
 
-      <MobileCatalogDrawer isOpen={isCatalogOpen} items={catalogItems} onClose={() => setIsCatalogOpen(false)} />
-      <MobileSearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-      <MobileBottomNav onOpenMenu={openCatalog} onOpenSearch={openSearch} />
+      {isStandalone ? (
+        <>
+          <MobileCatalogDrawer isOpen={isCatalogOpen} items={catalogItems} onClose={() => setIsCatalogOpen(false)} />
+          <MobileSearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+          <MobileBottomNav onOpenMenu={openCatalog} onOpenSearch={openSearch} />
+        </>
+      ) : null}
     </SiteLayout>
   );
 }

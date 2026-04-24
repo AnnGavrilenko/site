@@ -71,27 +71,27 @@
 }
 
 @media (max-width: 768px) {
-  .slider {
+  :global(body.app-standalone-mode) .slider {
     border-radius: 14px;
   }
 
-  .slide img {
+  :global(body.app-standalone-mode) .slide img {
     height: 176px;
     object-fit: cover;
   }
 
-  .arrow {
+  :global(body.app-standalone-mode) .arrow {
     width: 28px;
     height: 28px;
     background-color: rgba(0, 0, 0, 0.32);
     border-radius: 50%;
   }
 
-  .dots {
+  :global(body.app-standalone-mode) .dots {
     bottom: 10px;
   }
 
-  .dot {
+  :global(body.app-standalone-mode) .dot {
     width: 8px;
     height: 8px;
   }

@@ -15,17 +15,17 @@
 }
 
 @media (max-width: 900px) {
-  .hero {
+  :global(body.app-standalone-mode) .hero {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .sideBanner {
+  :global(body.app-standalone-mode) .sideBanner {
     border-radius: 14px;
     overflow: hidden;
   }
 
-  .sideBanner img {
+  :global(body.app-standalone-mode) .sideBanner img {
     height: 168px;
     object-fit: cover;
   }
