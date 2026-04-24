@@ -1,3 +1,7 @@
+.appContainer {
+  min-width: 0;
+}
+
 .mainZone {
   min-width: 0;
 }
@@ -8,6 +12,15 @@
 }
 
 @media (max-width: 900px) {
+  :global(body.app-standalone-mode) .appContainer {
+    width: min(560px, calc(100% - 24px));
+    margin: 0 auto;
+  }
+
+  :global(body.app-standalone-mode) .mainZone {
+    padding-inline: 0;
+  }
+
   .mainZone {
     padding: 0 10px;
   }

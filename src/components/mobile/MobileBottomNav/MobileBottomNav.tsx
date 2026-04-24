@@ -5,10 +5,16 @@ import styles from './MobileBottomNav.module.css';
 type MobileBottomNavProps = {
   onOpenMenu: () => void;
   onOpenSearch: () => void;
+  isSearchActive?: boolean;
   cartCount?: number;
 };
 
-export function MobileBottomNav({ onOpenMenu, onOpenSearch, cartCount = 0 }: MobileBottomNavProps): JSX.Element {
+export function MobileBottomNav({
+  onOpenMenu,
+  onOpenSearch,
+  isSearchActive = false,
+  cartCount = 0,
+}: MobileBottomNavProps): JSX.Element {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -19,12 +25,12 @@ export function MobileBottomNav({ onOpenMenu, onOpenSearch, cartCount = 0 }: Mob
         <span>Меню</span>
       </button>
 
-      <button className={styles.item} onClick={onOpenSearch} type="button">
+      <button className={`${styles.item} ${isSearchActive ? styles.active : ''}`} onClick={onOpenSearch} type="button">
         <Icon name="search" />
         <span>Поиск</span>
       </button>
 
-      <Link className={`${styles.item} ${isHome ? styles.active : ''}`} to="/">
+      <Link className={`${styles.item} ${isHome && !isSearchActive ? styles.active : ''}`} to="/">
         <Icon name="home" />
         <span>Главная</span>
       </Link>

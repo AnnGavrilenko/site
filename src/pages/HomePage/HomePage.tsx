@@ -36,28 +36,30 @@ export function HomePage(): JSX.Element {
 
   return (
     <SiteLayout>
-      <WithSideCatalogLayout>
-        <HeroSection showSideBanner={!isStandalone} sideBannerImage={rightBannerImage} slides={sliderImages} />
-        {!isStandalone ? (
-          <div className={styles.popularProductsWrap}>
-            <PopularProductsSection items={popularProducts} />
-          </div>
-        ) : null}
-      </WithSideCatalogLayout>
+      <div className={styles.appContainer}>
+        <WithSideCatalogLayout>
+          <HeroSection showSideBanner={!isStandalone} sideBannerImage={rightBannerImage} slides={sliderImages} />
+          {!isStandalone ? (
+            <div className={styles.popularProductsWrap}>
+              <PopularProductsSection items={popularProducts} />
+            </div>
+          ) : null}
+        </WithSideCatalogLayout>
 
-      <section className={styles.mainZone}>
-        <FeaturesSection items={featuresItems} />
-      </section>
+        <section className={styles.mainZone}>
+          <FeaturesSection items={featuresItems} />
+        </section>
 
-      <section className={styles.mainZone}>
-        <PopularCategoriesSection items={popularCategories} />
-      </section>
+        <section className={styles.mainZone}>
+          <PopularCategoriesSection items={popularCategories} />
+        </section>
+      </div>
 
       {isStandalone ? (
         <>
           <MobileCatalogDrawer isOpen={isCatalogOpen} items={catalogItems} onClose={() => setIsCatalogOpen(false)} />
-          <MobileSearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-          <MobileBottomNav onOpenMenu={openCatalog} onOpenSearch={openSearch} />
+          <MobileSearchPanel isOpen={isSearchOpen} items={popularProducts} onClose={() => setIsSearchOpen(false)} />
+          <MobileBottomNav isSearchActive={isSearchOpen} onOpenMenu={openCatalog} onOpenSearch={openSearch} />
         </>
       ) : null}
     </SiteLayout>

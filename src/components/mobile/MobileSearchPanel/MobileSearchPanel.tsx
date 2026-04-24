@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
+import type { PopularProductItem } from '../../../shared/config/homePageData';
 import styles from './MobileSearchPanel.module.css';
 
 type MobileSearchPanelProps = {
   isOpen: boolean;
   onClose: () => void;
+  items: PopularProductItem[];
 };
 
-export function MobileSearchPanel({ isOpen, onClose }: MobileSearchPanelProps): JSX.Element {
+export function MobileSearchPanel({ isOpen, onClose, items }: MobileSearchPanelProps): JSX.Element {
   useEffect(() => {
     if (!isOpen) {
       return undefined;
@@ -34,7 +36,19 @@ export function MobileSearchPanel({ isOpen, onClose }: MobileSearchPanelProps): 
           </button>
           <input aria-label="Поиск" className={styles.field} placeholder="Поиск по сайту..." type="text" />
         </div>
-        <p className={styles.hint}>Поиск подготовлен для мобильного интерфейса. Логика выдачи подключается на следующем этапе.</p>
+        <h2 className={styles.title}>Популярные товары</h2>
+        <div className={styles.grid}>
+          {items.map((item) => (
+            <a className={styles.card} href={item.href} key={item.title} onClick={onClose}>
+              <div className={styles.imageWrap}>
+                <img alt={item.title} src={item.image} />
+              </div>
+              <p className={styles.cardTitle}>{item.title}</p>
+              <p className={styles.price}>{item.price}</p>
+            </a>
+          ))}
+        </div>
+        <p className={styles.hint}>Логику поиска и фильтры можно добавить на следующем этапе, не меняя текущий экран.</p>
       </section>
     </>
   );
