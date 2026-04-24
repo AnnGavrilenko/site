@@ -17,6 +17,7 @@ export function MobileBottomNav({
 }: MobileBottomNavProps): JSX.Element {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const isMyGarden = location.pathname === '/my-garden';
 
   return (
     <nav aria-label="Мобильная навигация" className={styles.nav}>
@@ -47,16 +48,10 @@ export function MobileBottomNav({
         {cartCount > 0 ? <span className={styles.badge}>{cartCount}</span> : null}
       </a>
 
-      <a
-        className={styles.item}
-        href="#"
-        onClick={(event) => {
-          event.preventDefault();
-        }}
-      >
+      <Link className={`${styles.item} ${isMyGarden ? styles.active : ''}`} to="/my-garden">
         <Icon name="sprout" />
         <span className={styles.label}>Мой огород</span>
-      </a>
+      </Link>
     </nav>
   );
 }

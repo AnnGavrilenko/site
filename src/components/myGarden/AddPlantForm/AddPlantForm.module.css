@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+}
+
+.dismiss {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(10, 18, 10, 0.3);
+}
+
+.sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 18px 18px 0 0;
+  background: #ffffff;
+  padding: 16px 16px calc(18px + env(safe-area-inset-bottom));
+  box-shadow: 0 -12px 24px rgba(15, 30, 15, 0.22);
+  display: grid;
+  gap: 12px;
+}
+
+.sheet h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.field select,
+.field input {
+  min-height: 42px;
+  border-radius: 12px;
+  border: 1px solid #d3e0d3;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.switchRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.saveButton {
+  border: 0;
+  border-radius: 12px;
+  min-height: 44px;
+  background: #2f8f30;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+}
