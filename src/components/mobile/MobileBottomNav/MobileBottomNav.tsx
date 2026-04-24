@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Icon } from '../../ui/Icon/Icon';
 import styles from './MobileBottomNav.module.css';
 
@@ -17,7 +17,6 @@ export function MobileBottomNav({
 }: MobileBottomNavProps): JSX.Element {
   const location = useLocation();
   const isHome = location.pathname === '/';
-  const isMyGarden = location.pathname === '/my-garden';
 
   return (
     <nav aria-label="Мобильная навигация" className={styles.nav}>
@@ -48,10 +47,10 @@ export function MobileBottomNav({
         {cartCount > 0 ? <span className={styles.badge}>{cartCount}</span> : null}
       </a>
 
-      <Link className={`${styles.item} ${isMyGarden ? styles.active : ''}`} to="/my-garden">
+      <NavLink className={({ isActive }) => `${styles.item} ${isActive ? styles.active : ''}`} to="/my-garden">
         <Icon name="sprout" />
         <span className={styles.label}>Мой огород</span>
-      </Link>
+      </NavLink>
     </nav>
   );
 }
