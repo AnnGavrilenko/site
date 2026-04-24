@@ -73,6 +73,10 @@
   white-space: nowrap;
 }
 
+.checkbox input {
+  accent-color: #f28b22;
+}
+
 .deleteButton {
   position: absolute;
   top: 8px;

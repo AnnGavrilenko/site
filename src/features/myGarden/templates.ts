@@ -1,12 +1,4 @@
-import type { PlantCareTemplate, PlantCategory, PlantCulture } from './types';
-import type { GardenActionType } from './types';
-
-export const plantCategories: PlantCategory[] = ['Семена овощей', 'Саженцы'];
-
-export const culturesByCategory: Record<PlantCategory, PlantCulture[]> = {
-  'Семена овощей': ['Томат ранний урожайный'],
-  Саженцы: ['Гортензия метельчатая Граффити'],
-};
+import type { GardenActionType, PlantTemplate } from './types';
 
 export const actionTypeOptions = [
   { type: 'Посадка', icon: '🌱' },
@@ -22,7 +14,7 @@ export const actionIconByType = actionTypeOptions.reduce<Record<GardenActionType
   return acc;
 }, {} as Record<GardenActionType, string>);
 
-export const plantCareTemplates: PlantCareTemplate[] = [
+export const plantCareTemplates: PlantTemplate[] = [
   {
     culture: 'Томат ранний урожайный',
     steps: [

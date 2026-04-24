@@ -216,7 +216,7 @@ export function MyGardenPage(): JSX.Element {
                       </div>
                       <label className={styles.checkbox}>
                         <input checked={event.isCompleted} onChange={() => toggleEventStatus(event.id)} type="checkbox" />
-                        <span>{event.isCompleted ? 'Отменить' : 'Выполнить'}</span>
+                        <span>{event.isCompleted ? 'Выполнено' : 'Выполнить'}</span>
                       </label>
                     </li>
                   );

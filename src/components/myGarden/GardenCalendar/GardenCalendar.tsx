@@ -22,6 +22,12 @@ function toDateKey(date: Date): string {
   return new Date(date.getTime() - offset).toISOString().slice(0, 10);
 }
 
+function formatMonthTitle(date: Date): string {
+  const monthLabel = date.toLocaleDateString('ru-RU', { month: 'long' });
+  const monthName = monthLabel.charAt(0).toUpperCase() + monthLabel.slice(1);
+  return `${monthName} ${date.getFullYear()} г.`;
+}
+
 export function GardenCalendar({
   monthDate,
   selectedDate,
@@ -46,10 +52,7 @@ export function GardenCalendar({
     return acc;
   }, {});
 
-  const monthTitle = monthDate.toLocaleDateString('ru-RU', {
-    month: 'long',
-    year: 'numeric',
-  });
+  const monthTitle = formatMonthTitle(monthDate);
 
   return (
     <section className={styles.card}>

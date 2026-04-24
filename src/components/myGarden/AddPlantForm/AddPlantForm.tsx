@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { culturesByCategory, plantCategories } from '../../../features/myGarden/templates';
+import { culturesByCategory, plantCategories } from '../../../features/myGarden/culturesConfig';
 import type { PlantCategory, PlantCulture } from '../../../features/myGarden/types';
 import styles from './AddPlantForm.module.css';
 

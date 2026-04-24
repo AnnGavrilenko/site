@@ -31,12 +31,12 @@ export type GardenEvent = {
   source: GardenEventSource;
 };
 
-export type PlantCareTemplateStep = {
+export type PlantTemplateStep = {
   offsetDays: number;
   actionType: GardenActionType;
 };
 
-export type PlantCareTemplate = {
+export type PlantTemplate = {
   culture: PlantCulture;
-  steps: PlantCareTemplateStep[];
+  steps: PlantTemplateStep[];
 };
