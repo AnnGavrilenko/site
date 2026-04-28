@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AddGardenActionForm } from '../../components/myGarden/AddGardenActionForm/AddGardenActionForm';
 import type { AddGardenActionPayload } from '../../components/myGarden/AddGardenActionForm/AddGardenActionForm';
@@ -10,8 +10,10 @@ import { MobileBottomNav } from '../../components/mobile/MobileBottomNav/MobileB
 import { MobileCatalogDrawer } from '../../components/mobile/MobileCatalogDrawer/MobileCatalogDrawer';
 import { MobileSearchPanel } from '../../components/mobile/MobileSearchPanel/MobileSearchPanel';
 import { SiteLayout } from '../../components/layout/SiteLayout/SiteLayout';
+import { NotificationsToggle } from '../../components/pwa/NotificationsToggle/NotificationsToggle';
 import { plantCareTemplates, actionIconByType } from '../../features/myGarden/templates';
 import type { GardenEvent, Plant } from '../../features/myGarden/types';
+import { notifyGardenEvents } from '../../services/notificationService';
 import { catalogItems, popularProducts } from '../../shared/config/homePageData';
 import { useDisplayMode } from '../../shared/hooks/useDisplayMode';
 import styles from './MyGardenPage.module.css';
@@ -62,6 +64,21 @@ export function MyGardenPage(): JSX.Element {
         ...event,
         plantName: plantById[event.plantId]?.culture ?? 'Неизвестное растение',
       }));
+  }, [events, plants, selectedDate]);
+
+  useEffect(() => {
+    const eventsForNotifications = events.map((event) => {
+      const plantName = plants.find((plant) => plant.id === event.plantId)?.culture;
+      return {
+        id: event.id,
+        date: event.date,
+        isCompleted: event.isCompleted,
+        actionType: event.actionType,
+        plantName,
+      };
+    });
+
+    void notifyGardenEvents(selectedDate, eventsForNotifications);
   }, [events, plants, selectedDate]);
 
   const toggleEventStatus = (eventId: string): void => {
@@ -178,6 +195,7 @@ export function MyGardenPage(): JSX.Element {
   return (
     <SiteLayout>
       <div className={styles.page}>
+        <NotificationsToggle />
         <GardenCalendar
           events={events}
           monthDate={monthDate}

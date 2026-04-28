@@ -41,6 +41,7 @@ export default defineConfig(({ mode }) => {
       },
       workbox: {
         cleanupOutdatedCaches: true,
+        importScripts: [`${appBase}sw-notifications.js`],
         navigateFallback: `${appBase}index.html`,
         runtimeCaching: [
           {

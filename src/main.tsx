@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRouter } from './app/AppRouter';
 import { DisplayModeClassManager } from './components/pwa/DisplayModeClassManager/DisplayModeClassManager';
 import { InstallAppBanner } from './components/pwa/InstallAppBanner/InstallAppBanner';
+import { NotificationBootstrap } from './components/pwa/NotificationBootstrap/NotificationBootstrap';
 import { PwaUpdatePrompt } from './components/pwa/PwaUpdatePrompt/PwaUpdatePrompt';
 import './styles/global.css';
 
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <DisplayModeClassManager />
+      <NotificationBootstrap />
       <AppRouter />
       <InstallAppBanner />
       <PwaUpdatePrompt />

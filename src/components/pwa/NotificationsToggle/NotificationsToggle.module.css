@@ -1,0 +1,15 @@
+.button {
+  align-self: flex-start;
+  padding: 8px 12px;
+  border: 1px solid #c9d4c0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f4f22;
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #f4f8ef;
+}
