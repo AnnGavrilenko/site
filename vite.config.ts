@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
       VitePWA({
       registerType: 'prompt',
       injectRegister: 'auto',
-      includeAssets: ['pwa/logo.jpg', 'pwa/icon.jpg'],
+      includeAssets: ['pwa/logo.jpg', 'pwa/icon.jpg', 'pwa/icon-192.png', 'pwa/icon-512.png'],
       manifest: {
         name: 'Насенне',
         short_name: 'Насенне',
@@ -28,13 +28,21 @@ export default defineConfig(({ mode }) => {
         scope: appBase,
         icons: [
           {
-            src: `${appBase}pwa/logo.jpg`,
-            type: 'image/jpeg',
+            src: `${appBase}pwa/icon-192.png`,
+            sizes: '192x192',
+            type: 'image/png',
             purpose: 'any',
           },
           {
-            src: `${appBase}pwa/icon.jpg`,
-            type: 'image/jpeg',
+            src: `${appBase}pwa/icon-512.png`,
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: `${appBase}pwa/icon-512.png`,
+            sizes: '512x512',
+            type: 'image/png',
             purpose: 'any maskable',
           },
         ],
